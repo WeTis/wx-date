@@ -1,0 +1,16 @@
+var addClass = function(arr,year,month,value){
+  var status = false;
+  var item =  year + "-" + (month > 9 ? month : "0" + month) + "-" + (value > 9 ? value : "0" + value);
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] == item){
+      status = true;
+      break;
+    }
+  }
+
+  return status;
+}
+
+module.exports = {
+  addClass: addClass
+}

@@ -1,0 +1,39 @@
+<wxs src="./utils/date.wxs" module="tools" />
+<view class='witin-date-wrapper'>
+  <view class='witin-inner-wrapper'>
+    <view class='witin-date-year'>
+     <view class='witin-date-prev icon' bindtap='getPrevYear'>
+       《《
+      </view>
+       <view class='witin-date-month-text'>
+      {{list.year}}
+      </view>
+       <view class='witin-date-next icon' bindtap='getNextYear'>
+       》》
+      </view>
+    </view>
+    <view class='witin-date-month'>
+      <view class='witin-date-prev icon' bindtap='getPrevDate'>
+       《
+      </view>
+      <view class='witin-date-month-text'>
+      {{list.month}}月
+      </view>
+      <view class='witin-date-next icon' bindtap='getNextDate'>
+       》
+      </view>
+    </view>
+    <view class='witin-date-week'>
+      <view class='witin-date-week-item'>周日</view>
+      <view class='witin-date-week-item'>周一</view>
+      <view class='witin-date-week-item'>周二</view>
+      <view class='witin-date-week-item'>周三</view>
+      <view class='witin-date-week-item'>周四</view>
+      <view class='witin-date-week-item'>周五</view>
+      <view class='witin-date-week-item'>周六</view>
+    </view>
+    <view class='witin-date-day'>
+      <view bindtap='getDateValue' data-value="{{item.date}}" data-disable="{{item.month}}" class='witin-date-day-item {{item.month? "":"hide"}} {{tools.addClass(selectDate,list.year,list.month,item.date) && item.month ? "activve":""}}' wx:for="{{list.date}}" >{{item.date}}</view>
+    </view>
+  </view>
+</view>
