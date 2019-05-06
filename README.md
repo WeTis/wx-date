@@ -5,7 +5,7 @@
 - 引入方式
 ```
 <wxDate bind:clickGetDateArr="自定义获取时间的方法"/>
-<wxDate bind:clickGetDateArr="onDateOfBirth" choice="false" startTime="1995-08-09" start="1995-08-09" end="1995-08-25"/>
+<wxDate bind:clickGetDateArr="onDateOfBirth" choice="" startTime="1995-08-09" start="1995-08-09" end="1995-08-25"/>
 ```
 - 组件开始时间
 ```
