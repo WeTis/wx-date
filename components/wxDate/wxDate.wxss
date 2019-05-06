@@ -83,25 +83,22 @@
   align-items: center; 
 }
 .witin-date-wrapper .witin-date-day-item{
-  width: 100rpx;
-  height: 100rpx;
-  line-height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 10rpx;
   text-align: center;
   position: relative;
+  font-size: 32rpx;
 }
 .witin-date-wrapper .hide{
   color: #aaa;
 }
-.witin-date-wrapper .activve::after{
-  position: absolute;
-  width: 80rpx;
-  height: 80rpx;
-  top: 10rpx;
-  left: 10rpx;
-  content: "";
+
+.witin-date-wrapper .activve{
   background-color: red;
-  color: #fff;
   border-radius: 50%;
+  color: #fff;
 }
 
 

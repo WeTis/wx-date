@@ -15,5 +15,11 @@ Page({
   },
   getUserInfo: function(e) {
     
-  }
+  },
+  onDateOfBirth: function (e) {
+    console.log(e.detail.date);
+    // this.setData({
+    //   dateOfBirth: e.detail.date
+    // })
+  },
 })

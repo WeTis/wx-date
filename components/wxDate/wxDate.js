@@ -21,14 +21,12 @@ Component({
    */
   methods: {
     getNextDate(){
-      console.log(this.data.list.month);
       let list = getshowDate(this.data.list.year,this.data.list.month+1);
       this.setData({
         list: list
       })
     },
     getPrevDate() {
-      console.log(this.data.list.month);
       let list = getshowDate(this.data.list.month - 1 == 0 ? this.data.list.year-1 : this.data.list.year, this.data.list.month - 1 == 0 ? 12 : this.data.list.month - 1);
       this.setData({
         list: list
@@ -53,17 +51,39 @@ Component({
       if(!clicked){
         return false;
       }
+      
       let year = this.data.list.year;
       let month = this.data.list.month;
-      console.log(year,month);
+
       let date = year + "-" + (month > 9 ? month : "0"+month) +"-"+(value > 9 ? value : "0"+value);
-      
+      if (this.checkSelecData(date)){
+        this.triggerEvent('clickGetDateArr', { date: this.data.selectDate });
+        return false;
+      }
+
+
       let selectDate = this.data.selectDate;
       selectDate.push(date);
       this.setData({
         selectDate: selectDate
       })
-      console.log(this.data.selectDate);
+      this.triggerEvent('clickGetDateArr', { date: this.data.selectDate });
+      // console.log(this.data.selectDate);
+    },
+    checkSelecData(item){
+      let arr = this.data.selectDate;
+      let isExistence = false;
+      for(let i = 0; i < arr.length; i++){
+        if(arr[i] == item){
+          arr.splice(i,1);
+          isExistence = true;
+          break;
+        }
+      }
+      this.setData({
+        selectDate: arr
+      })
+      return isExistence;
     }
   }
 })
