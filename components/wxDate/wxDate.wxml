@@ -1,5 +1,6 @@
 <wxs src="./utils/date.wxs" module="tools" />
 <view class='witin-date-wrapper'>
+  
   <view class='witin-inner-wrapper'>
     <view class='witin-date-year'>
      <view class='witin-date-prev icon' bindtap='getPrevYear'>
@@ -33,7 +34,7 @@
       <view class='witin-date-week-item'>周六</view>
     </view>
     <view class='witin-date-day'>
-      <view bindtap='getDateValue' data-value="{{item.date}}" data-disable="{{item.month}}" class='witin-date-day-item {{item.month? "":"hide"}} {{tools.addClass(selectDate,list.year,list.month,item.date) && item.month ? "activve":""}}' wx:for="{{list.date}}" >{{item.date}}</view>
+      <view bindtap='getDateValue' data-value="{{item.date}}" data-disable='{{item.month && tools.isClick((list.year+"/"+list.month+"/"+item.date),startTimeItem,endTimeItem)}}' class='witin-date-day-item {{item.month? "":"hide"}} {{(tools.addClass(selectDate,list.year,list.month,item.date) && item.month ) ? "activve":""}} {{ tools.isClick((list.year+"/"+list.month+"/"+item.date),startTimeItem,endTimeItem) ? "":"hide"}}' wx:for="{{list.date}}" >{{item.date}}</view>
     </view>
   </view>
 </view>

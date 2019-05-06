@@ -11,6 +11,21 @@ var addClass = function(arr,year,month,value){
   return status;
 }
 
+var isClick = function (item,start,end){
+
+  var reg = getRegExp("-", "g");
+  var startTime = start.replace(reg, '/');
+  var endTime = end.replace(reg, '/');
+  console.log(item, start, end, startTime, endTime)
+  var status = false;
+  if (getDate(startTime).getTime() <= getDate(item).getTime() && getDate(endTime).getTime() >= getDate(item).getTime()){
+    status = true;
+  }
+  console.log(getDate(startTime).getTime(), getDate(item).getTime(), getDate(endTime).getTime(), status)
+  return status;  
+}
+
 module.exports = {
-  addClass: addClass
+  addClass: addClass,
+  isClick: isClick
 }
